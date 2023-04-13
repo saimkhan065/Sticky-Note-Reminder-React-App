@@ -1,11 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import NewPost from "./components/create_post.jsx";
+import PostList from './components/PostList.jsx';
+import CreatePost from './components/CreatePost.jsx'
+
 
 function App() {
-  return <NewPost />;
+  return (
+      <>
+          <PostList/>
+      </>
+  );
 }
 
 export default App
