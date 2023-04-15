@@ -4,10 +4,9 @@ import CreatePost from "./CreatePost.jsx";
 import classes from "./PostList.module.css"
 import Modal from "./Modal.jsx";
 
-function PostList(){
+function PostList(props){
     const [body, setBody] = useState('');
     const [task, setTask] = useState('');
-    const [modalIsVisible, setModalIsVisible] = useState('true');
     let modalContent;
 
     function onBodyChangeHandler(event){
@@ -17,13 +16,8 @@ function PostList(){
     function onNameChangeHandler(event){
         setTask(event.target.value);
     }
-
-    function hideModalHandler(){
-        setModalIsVisible(false);
-    }
-
-    if (modalIsVisible){
-        modalContent = <Modal onClickEvent={hideModalHandler}>
+    if (props.isPosting){
+        modalContent = <Modal onClickEvent={props.isNotPosting}>
             <CreatePost onBodyChange={onBodyChangeHandler} onNameChange={onNameChangeHandler}/>
         </Modal>
     }
