@@ -18,7 +18,7 @@ function PostList(props){
     }
     if (props.isPosting){
         modalContent = <Modal onClickEvent={props.isNotPosting}>
-            <CreatePost onBodyChange={onBodyChangeHandler} onNameChange={onNameChangeHandler}/>
+            <CreatePost onBodyChange={onBodyChangeHandler} onNameChange={onNameChangeHandler} onClickCancel={props.isNotPosting}/>
         </Modal>
     }
 

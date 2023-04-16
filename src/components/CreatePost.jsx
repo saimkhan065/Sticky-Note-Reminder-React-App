@@ -11,7 +11,10 @@ function CreatePost(props){
               <label htmlFor="name">Task Owner</label>
               <input type="text" id="name" required onChange={props.onNameChange}/>
           </p>
-          <button>Submit</button>
+          <p className={classes.actions}>
+              <button type="button" onClick={props.onClickCancel}>Cancel</button>
+              <button type="submit">Submit</button>
+          </p>
       </form>
     );
 }
