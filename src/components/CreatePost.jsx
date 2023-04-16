@@ -1,8 +1,12 @@
 import classes from './CreatePost.module.css'
+import {useState} from "react";
+import Modal from "./Modal.jsx";
 
 function CreatePost(props){
+
+
     return(
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={props.onFormSubmit}>
           <p>
               <label htmlFor="body">Description</label>
               <textarea name="" id="body" cols="30" rows="10" required onChange={props.onBodyChange}></textarea>

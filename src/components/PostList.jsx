@@ -5,10 +5,9 @@ import classes from "./PostList.module.css"
 import Modal from "./Modal.jsx";
 
 function PostList(props){
+    let modalContent;
     const [body, setBody] = useState('');
     const [task, setTask] = useState('');
-    let modalContent;
-
     function onBodyChangeHandler(event){
         setBody(event.target.value);
     }
@@ -16,12 +15,22 @@ function PostList(props){
     function onNameChangeHandler(event){
         setTask(event.target.value);
     }
+
+    function onSubmitHandler(event){
+        event.preventDefault();
+        const postData ={
+            content_body: body,
+            task_name: task
+        };
+        console.log(postData);
+        props.isNotPosting();
+    }
     if (props.isPosting){
         modalContent = <Modal onClickEvent={props.isNotPosting}>
-            <CreatePost onBodyChange={onBodyChangeHandler} onNameChange={onNameChangeHandler} onClickCancel={props.isNotPosting}/>
+            <CreatePost onBodyChange={onBodyChangeHandler} onNameChange={onNameChangeHandler} onClickCancel={props.isNotPosting}
+            onFormSubmit={onSubmitHandler}/>
         </Modal>
     }
-
     return(
         <>
             {modalContent}
